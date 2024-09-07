@@ -1,0 +1,63 @@
+@startuml
+
+package aw {
+    class Game {
+        -loop: GameLoop
+    }
+    package core {
+        package loop {
+            class GameLoop {
+                -start()
+            }
+        }
+
+        package game {
+            package grid {
+                class Tile {
+                    -x: int
+                    -y: int
+                    -unit: Optional<Unit>
+                    -cursor: boolean
+                    -biome: TileBiome
+                }
+
+                class Grid {
+                    -width: int
+                    -height: int
+                    -grid: Tile[]
+                }
+            }
+        }
+    }
+
+    package common {
+        package unit {
+            class Unit {
+                -health: float
+                -player: byte
+            }
+        }
+
+        package tile {
+            package biome {
+                enum TileBiomeTypes {
+                    -TileBiomeTypes()
+                }
+                abstract TileBiome {
+                    -player: byte
+                }
+            }
+
+            package access {
+            }
+        }
+
+        package movement {
+        }
+    }
+
+    package utils {
+    }
+}
+
+@enduml
